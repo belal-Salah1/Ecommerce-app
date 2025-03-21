@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<main class="container-fluid pageBox">
+  <div class="row main-row">
+    <div class="col-lg-4 mb-4">
+      <p>filter</p>
+      <p>category :{{ getParamValue }}</p>
+      <p>subCatagory</p>
+      <select (change)="filterSelect($event)" class="select">
+        <option value="all">All</option>
+        @for(subCat of getSubCatagoryOptions ;track $index){
+        <option name="name" [value]="subCat.subcategories ">
+          {{ subCat.subcategories }}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="col-lg-8">
+      @for(prdData of filteredProducts ;track prdData.pdId){
+
+      <div class="row prdBox">
+        <div class="col-lg-4">
+          <img [src]="prdData.pdImg" alt="" />
+        </div>
+        <div class="col-lg-8 text">
+          <h5>{{ prdData.pdName }}</h5>
+          <p class="text-black-50">{{ prdData.pdDesc }}</p>
+          <p>{{ prdData.pdPrice | currency }}</p>
+          <a
+            class="btn btn-sm btn-dark"
+            [routerLink]="[
+              '/product-details',
+              prdData.pdCategory,
+              prdData.pdId
+            ]"
+            >View Product <i class="bi bi-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</main>

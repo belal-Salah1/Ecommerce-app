@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<!-- start carousel -->
+<main class="container-fluid p-0">
+  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-inner">
+      @for(img of imagesArray; track img.id ){
+
+        <div class="carousel-item active">
+          <img src="{{img.imgSrc}}" class="d-block w-100" alt="...">
+        </div>
+      }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</main>
+<!-- end carousel -->
+
+<!-- catagorize box start -->
+  <div class="container my-4">
+    <div class="row catagorise bg-white">
+      @for(catagory of catagorizeArray ; track catagory.id){
+
+        <div class="col-lg-3 col-6 text-center p-3">
+          <a [routerLink]="['/product-page',catagory.code]">
+            <img [src]="catagory.imgSrc" class="rounded-circle border border-primary border-1">
+            <h4 class="my-2">{{catagory.name}}</h4>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+
+<!-- catagorize box end -->
+
+<!-- start show products  -->
+
+<!-- best of appliance -->
+
+  <div class="container my-4">
+
+
+    <div class="row">
+      <p>
+        <a class="float-start link-offset-3" [routerLink]="['/product-page','appliances']">Best of Appliance</a>
+        <a class="float-end"  [routerLink]="['/product-page','appliances']"><i class="bi bi-arrow-right-circle"></i>  </a>
+      </p>
+      @for(prd of applinceProductsArray ; track $index ; let i = $index){
+
+        <div class="col-lg-3 col-md-6 content ">
+          <a [routerLink]="['/product-details',prd.pdCategory,prd.pdId]">
+          <div class="productContent text-center" *ngIf="i < 4">
+            <div class="image">
+              <img [src]="prd.pdImg">
+            </div>
+            <h4>{{prd.pdName}}</h4>
+          </div>
+          </a>
+        </div>
+
+      }
+    </div>
+
+  </div>
+  <!-- best of appliance -->
+
+  <!-- best of fashion -->
+  <div class="container my-4">
+
+
+    <div class="row">
+      <p>
+        <a class="float-start link-offset-3" [routerLink]="['/product-page','fashion']">Best of fashion</a>
+        <a class="float-end"  [routerLink]="['/product-page','fashion']"><i class="bi bi-arrow-right-circle"></i>  </a>
+      </p>
+      @for(prd of fashionProductsArray ; track $index ; let i = $index){
+
+        <div class="col-lg-3 col-md-6 content ">
+          <a [routerLink]="['/product-details',prd.pdCategory,prd.pdId]">
+          <div class="productContent text-center" *ngIf="i < 4">
+            <div class="image">
+              <img [src]="prd.pdImg">
+            </div>
+            <h4>{{prd.pdName}}</h4>
+          </div>
+          </a>
+        </div>
+
+      }
+    </div>
+
+  </div>
+  <!-- best of fashion -->
+
+
+<!-- end show products  -->

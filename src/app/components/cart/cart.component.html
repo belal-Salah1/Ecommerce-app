@@ -1,0 +1,89 @@
+<app-navbar [cartCount]="productsCount"></app-navbar>
+<div
+  class="container p-5 mx-auto mt-5 bg-white text-center"
+  *ngIf="productsCount == 0"
+>
+  <p>Cart Is Empty</p>
+</div>
+
+<div class="container-fluid" *ngIf="productsCount > 0">
+  <div class="row g-3 main">
+    <div class="col-lg-8 col-12 bg-white main-div">
+      @for(data of getCartProducts ; track data.pdId){
+      <div class="row prds-content">
+        <div class="box col-4">
+          <img [src]="data.pdImg" alt="cart image" class="img-fluid" />
+        </div>
+        <div class="text col-8">
+          <h4>{{ data.pdName }}</h4>
+          <p>{{ data.pdPrice | currency }}</p>
+          <button class="btn btn-sm btn-danger" (click)="removeProduct(data)">
+            <i class="bi bi-trash3-fill"></i>Romove
+          </button>
+
+          <div class="mt-2">
+            <button class="btn btn-sm btn-dark" (click)="minusCount(data)">-</button>&nbsp;
+            <input type="number" class="col-2" [(ngModel)]="data.quantity" disabled>&nbsp;
+            <button class="btn btn-sm btn-dark"(click)="plusCount(data)">+</button>
+          </div>
+
+        </div>
+      </div>
+
+      }
+    </div>
+    <div class="col-lg-3 col-6 mx-auto mt-5 price bg-white">
+      <div class="price-details">
+        <h5 class="fw-bold fs-5">Price Details</h5>
+        <hr />
+        <p class="mb-2 mt-2">
+          <span class="float-start">Price({{ productsCount }})</span>
+          <span class="float-end">{{ TotalAmount | currency }}</span>
+        </p>
+        <div class="clearfix"></div>
+        <p class="mb-2 mt-2">
+          <span class="float-start">Delivery</span>
+          <span class="float-end">Free</span>
+        </p>
+        <div class="clearfix"></div>
+        <hr />
+        <span class="fw-bold float-start">Total Amount</span>
+        <span class="float-end">{{ TotalAmount | currency }}</span>
+        <div class="clearfix mb-4"></div>
+        <button type="button" class="btn btn-warning w-100 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Place Order <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Order</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Enter Email Id :</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Enter Address :</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+            <div class="mb-3">
+              <input type="radio" checked> <label for="">Cash On Delevery</label>
+            </div>
+            <div class="mb-3">
+              <h5>Totla Amount : {{TotalAmount | currency}}</h5>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="orderNow()">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

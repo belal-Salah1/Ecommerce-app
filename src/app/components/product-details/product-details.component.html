@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row g-5 prdBox">
+    <div class="col-lg-4 col-12 mt-0">
+      <div class="box mb-5">
+        <img [src]="getProductDetails.pdImg" alt="prd image" class="">
+
+      </div>
+    </div>
+    <div class="col-lg-8 col-12 text-start mt-0">
+      <h4>{{getProductDetails.pdName}}</h4>
+      <p class="text-black-50 fs-6">{{getProductDetails.pdDesc}}</p>
+      <p>{{getProductDetails.pdPrice|currency}}</p>
+      <button class="btn btn-md btn-warning" *ngIf="!inCart" (click)="addCart(getProductDetails)"><span >Add To Cart</span><i class="bi bi-bag ms-1"></i></button>
+      <a class="btn btn-md btn-warning" routerLink="/cart" *ngIf="inCart"><span >go To Cart</span><i class="bi bi-bag ms-1"></i></a>
+    </div>
+  </div>
+</div>
