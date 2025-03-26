@@ -23,25 +23,25 @@ export class GetDataService {
     {
       id: 1,
       name: 'Fasion',
-      imgSrc: '../../assets/images/categoriesimg/fashion.webp',
+      imgSrc: 'assets/images/categoriesimg/fashion.webp',
       code: 'fashion',
     },
     {
       id: 2,
       name: 'Toys',
-      imgSrc: '../../assets/images/categoriesimg/toys.webp',
+      imgSrc: ' assets/images/categoriesimg/toys.webp',
       code: 'toys',
     },
     {
       id: 3,
       name: 'Appliance',
-      imgSrc: '../../assets/images/categoriesimg/appliance.webp',
+      imgSrc: ' assets/images/categoriesimg/appliance.webp',
       code: 'appliances',
     },
     {
       id: 4,
       name: 'Home & Furniture',
-      imgSrc: '../../assets/images/categoriesimg/home.webp',
+      imgSrc: 'assets/images/categoriesimg/home.webp',
       code: 'homeandfurniture',
     },
   ];
@@ -53,7 +53,7 @@ export class GetDataService {
       pdPrice: 11499,
       pdCategory: "appliances",
       pdSubCategory: "mobile",
-      pdImg: "../../assets/images/productimg/samasungmobile.webp"
+      pdImg: "assets/images/productimg/samasungmobile.webp"
     },
     {
       pdId: 8566,
@@ -62,7 +62,7 @@ export class GetDataService {
       pdPrice: 79900,
       pdCategory: "appliances",
       pdSubCategory: "mobile",
-      pdImg: "../../assets/images/productimg/appleiphone15.webp"
+      pdImg: "assets/images/productimg/appleiphone15.webp"
     },
     {
       pdId: 8567,
@@ -71,7 +71,7 @@ export class GetDataService {
       pdPrice: 7450,
       pdCategory: "appliances",
       pdSubCategory: "air cooler",
-      pdImg: "../../assets/images/productimg/aircooler.webp"
+      pdImg: "assets/images/productimg/aircooler.webp"
     },
 
     {
@@ -81,7 +81,7 @@ export class GetDataService {
       pdPrice: 74000,
       pdCategory: "appliances",
       pdSubCategory: "smart tv",
-      pdImg: "../../assets/images/productimg/smartvsony.webp"
+      pdImg: "assets/images/productimg/smartvsony.webp"
     },
     {
       pdId: 8569,
@@ -90,7 +90,7 @@ export class GetDataService {
       pdPrice: 44990,
       pdCategory: "appliances",
       pdSubCategory: "refrigerator",
-      pdImg: "../../assets/images/productimg/refrigeratorsamsung.webp"
+      pdImg: "assets/images/productimg/refrigeratorsamsung.webp"
     },
     {
       pdId: 8570,
@@ -99,7 +99,7 @@ export class GetDataService {
       pdPrice: 2199,
       pdCategory: "appliances",
       pdSubCategory: "mobile",
-      pdImg: "../../assets/images/productimg/nokiamobile.webp"
+      pdImg: "assets/images/productimg/nokiamobile.webp"
     },
     {
       pdId: 8571,
@@ -108,7 +108,7 @@ export class GetDataService {
       pdPrice: 200,
       pdCategory: "fashion",
       pdSubCategory: "tshirt",
-      pdImg: "../../assets/images/productimg/men-fashion-2.webp",
+      pdImg: "assets/images/productimg/men-fashion-2.webp",
       pdSize: ["S", "M", "L", "XL"]
     },
     {
@@ -118,7 +118,7 @@ export class GetDataService {
       pdPrice: 500,
       pdCategory: "fashion",
       pdSubCategory: "tshirt",
-      pdImg: "../../assets/images/productimg/men-fashion-3.webp",
+      pdImg: "assets/images/productimg/men-fashion-3.webp",
       pdSize: ["S", "M", "L", "XL"]
 
     },
@@ -129,7 +129,7 @@ export class GetDataService {
       pdPrice: 800,
       pdCategory: "fashion",
       pdSubCategory: "tshirt",
-      pdImg: "../../assets/images/productimg/women-fashion-1.webp",
+      pdImg: "assets/images/productimg/women-fashion-1.webp",
       pdSize: ["S", "M", "L", "XL"]
     },
     {
@@ -139,7 +139,7 @@ export class GetDataService {
       pdPrice: 550,
       pdCategory: "fashion",
       pdSubCategory: "jeans",
-      pdImg: "../../assets/images/productimg/men-fashion-jeans-1.webp",
+      pdImg: "assets/images/productimg/men-fashion-jeans-1.webp",
       pdSize: [30, 32, 34]
     },
     {
@@ -149,7 +149,7 @@ export class GetDataService {
       pdPrice: 1500,
       pdCategory: "fashion",
       pdSubCategory: "jeans",
-      pdImg: "../../assets/images/productimg/women-fashion-jeans-1.webp",
+      pdImg: "assets/images/productimg/women-fashion-jeans-1.webp",
       pdSize: [26, 28, 30, 32, 34]
     },
     {
@@ -159,7 +159,7 @@ export class GetDataService {
       pdPrice: 1500,
       pdCategory: "homeandfurniture",
       pdSubCategory: "cover",
-      pdImg: "../../assets/images/productimg/hnf-cover-1.webp",
+      pdImg: "assets/images/productimg/hnf-cover-1.webp",
     },
     {
       pdId: 8577,
@@ -168,7 +168,7 @@ export class GetDataService {
       pdPrice: 2500,
       pdCategory: "homeandfurniture",
       pdSubCategory: "cover",
-      pdImg: "../../assets/images/productimg/hnf-curtain-2.webp",
+      pdImg: "assets/images/productimg/hnf-curtain-2.webp",
     },
     {
       pdId: 8578,
@@ -177,7 +177,7 @@ export class GetDataService {
       pdPrice: 2500,
       pdCategory: "homeandfurniture",
       pdSubCategory: "cover",
-      pdImg: "../../assets/images/productimg/hnf-cover-2.webp",
+      pdImg: "assets/images/productimg/hnf-cover-2.webp",
     },
     {
       pdId: 8579,
@@ -186,7 +186,7 @@ export class GetDataService {
       pdPrice: 15000,
       pdCategory: "homeandfurniture",
       pdSubCategory: "sofa",
-      pdImg: "../../assets/images/productimg/hnf-sofa-1.webp",
+      pdImg: "assets/images/productimg/hnf-sofa-1.webp",
     },
     {
       pdId: 8580,
@@ -195,7 +195,7 @@ export class GetDataService {
       pdPrice: 10000,
       pdCategory: "homeandfurniture",
       pdSubCategory: "table",
-      pdImg: "../../assets/images/productimg/hnf-table-1.webp",
+      pdImg: "assets/images/productimg/hnf-table-1.webp",
     },
     {
       pdId: 8581,
@@ -204,7 +204,7 @@ export class GetDataService {
       pdPrice: 300,
       pdCategory: "toys",
       pdSubCategory: "cars",
-      pdImg: "../../assets/images/productimg/toy-1.webp",
+      pdImg: "assets/images/productimg/toy-1.webp",
     },
     {
       pdId: 8582,
@@ -213,7 +213,7 @@ export class GetDataService {
       pdPrice: 25000,
       pdCategory: "toys",
       pdSubCategory: "cars",
-      pdImg: "../../assets/images/productimg/toy-2.webp",
+      pdImg: "assets/images/productimg/toy-2.webp",
     },
     {
       pdId: 8583,
@@ -222,7 +222,7 @@ export class GetDataService {
       pdPrice: 700,
       pdCategory: "toys",
       pdSubCategory: "puzzle",
-      pdImg: "../../assets/images/productimg/toy-3.webp",
+      pdImg: "assets/images/productimg/toy-3.webp",
     },
     {
       pdId: 8584,
@@ -231,7 +231,7 @@ export class GetDataService {
       pdPrice: 500,
       pdCategory: "toys",
       pdSubCategory: "toys",
-      pdImg: "../../assets/images/productimg/toy-4.webp",
+      pdImg: "assets/images/productimg/toy-4.webp",
     },
   ];
 
