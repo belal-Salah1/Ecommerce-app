@@ -58,6 +58,12 @@ export class CartComponent implements OnInit {
   orderNow(){
     this._router.navigate(['/home']);
     localStorage.removeItem('cart-data')
+    this.resetPage();
+  }
+  resetPage(){
+    this.getCartProducts = [];
+    this.productsCount = 0;
+    this.TotalAmount = 0;
   }
 
 
