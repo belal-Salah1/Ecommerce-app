@@ -11,4 +11,5 @@ export const routes: Routes = [
   {path:'cart' , component:CartComponent},
   {path:'product-page/:name', component:ProductPageComponent},
   {path:'product-details/:name/:id' , component:ProductDetailsComponent},
+  {path:'**' , redirectTo:'home'}
 ];
