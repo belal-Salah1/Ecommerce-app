@@ -15,6 +15,7 @@ export class ProductPageComponent implements OnInit {
   getProductData: any = [];
   filteredProducts: any = [];
   getSubCatagoryOptions: any = [];
+  getFilterValue:any;
   constructor(
     private _router: ActivatedRoute,
     private _getDataService: GetDataService
@@ -37,10 +38,10 @@ export class ProductPageComponent implements OnInit {
 
   filterSelect(data: any) {
     this.filteredProducts = [];
-    var getFilterValue = data.target.value;
-    if (getFilterValue != 'all') {
+    this.getFilterValue = data.target.value;
+    if (this.getFilterValue != 'all') {
       this._getDataService.productData.filter((prd) => {
-        if (prd.pdSubCategory == getFilterValue) {
+        if (prd.pdSubCategory == this.getFilterValue) {
           this.filteredProducts.push(prd);
         }
       });
