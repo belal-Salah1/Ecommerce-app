@@ -3,10 +3,11 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { GetDataService } from '../../services/get-data.service';
 import { RouterLink, RouterModule } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink, RouterModule, NavbarComponent],
+  imports: [CommonModule, RouterLink, RouterModule, NavbarComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

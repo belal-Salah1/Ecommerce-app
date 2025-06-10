@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-user-login',
-  imports: [NavbarComponent, NgIf, ReactiveFormsModule],
+  imports: [NavbarComponent, NgIf, ReactiveFormsModule, RouterLink, FooterComponent],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.css'
 })

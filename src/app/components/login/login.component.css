@@ -1,0 +1,21 @@
+.loginBox{
+  background-color: white;
+  max-width: 500px;
+  .text{
+    p:nth-child(1){
+      font-size:34px;
+      font-weight: 500;
+    }
+    p:nth-child(2){
+      font-size:14px;
+    }
+  }
+  form{
+    div{
+      p{
+        font-size: 13px;
+}
+    }
+  }
+
+}

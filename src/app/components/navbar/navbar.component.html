@@ -25,11 +25,17 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link pe-0" routerLink="/userLogin">
+            <span>Register</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link pe-0" routerLink="/login">
             <span *ngIf="!logState">LogIn</span>
             <span *ngIf="logState">LogOut</span>
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link pe-0" routerLink="/cart">
             <i class="bi bi-cart3"></i> Cart

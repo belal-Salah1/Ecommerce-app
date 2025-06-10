@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="loginBox m-auto mt-5 p-5 rounded-4 " >
+  <div class="text text-center">
+    <p class="mb-0">Welcome back</p>
+    <p class="text-black-50">Welcome back! Please enter your details.</p>
+  </div>
+  <form action="" #loginForm='ngForm' (ngSubmit)="onSubmit(loginForm)">
+    <div class="mb-3">
+      <label for="Email" class="form-label">Email</label>
+      <input type="email" id="Email" class="form-control"  [(ngModel)]="model.email" #email="ngModel" required email name="email">
+      <div class="emailValidate" >
+        <p class="text-danger" *ngIf="email?.errors?.['required']"> The email is required</p>
+        <p class="text-danger" *ngIf="email?.errors?.['email']">Please enter a valid email</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input type="password" id="Password" class="form-control" placeholder="Enter your password" [(ngModel)]="model.password" #password="ngModel" required minlength="6" maxlength="30" pattern="^(?=(.*\d){2,})(?=(.*[a-zA-Z]){2,})(?=.*[A-Z]).{6,}$" name="password">
+      <div class="passwordValidate" >
+        <p class="text-danger" *ngIf="password?.errors?.['pattern'] && password?.touched">Please enter at 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
+        <p class="text-danger" *ngIf="password?.errors?.['required']"> The password is required</p>
+      </div>
+    </div>
+    <div class="submit text-center">
+      <button type="submit" class="btn btn-warning d-inline-block w-100 mt-3 " [disabled]="loginForm.invalid">LogIn</button>
+    </div>
+  </form>
+</div>
+

@@ -2,15 +2,18 @@ import { HomeComponent } from './components/home/home.component';
 import { Routes } from '@angular/router';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { CartComponent } from './components/cart/cart.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
+import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  {path:'' , redirectTo:'home' , pathMatch:'full'},
-  {path:'home' , component:HomeComponent},
-  {path:'cart' , component:CartComponent},
+  {path:'' , redirectTo:'userLogin' , pathMatch:'full'},
+  {path:'home' , component:HomeComponent, canActivate:[authGuard]},
+  {path:'cart' , loadComponent:()=>import('./components/cart/cart.component').then(m=>m.CartComponent)},
   {path:'product-page/:name', component:ProductPageComponent},
   {path:'product-details/:name/:id' , component:ProductDetailsComponent},
-  {path:'login' , component:UserLoginComponent},
-  {path:'**' , redirectTo:'home'}
+  {path:'login' , component:LoginComponent},
+  {path:'userLogin' , component:UserLoginComponent},
+  {path:'notFound' ,loadComponent:()=>import('./components/not-found/not-found.component').then(m=>m.NotFoundComponent)},
+  {path:'**' , redirectTo:'notFound'}
 ];
