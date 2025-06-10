@@ -1,0 +1,58 @@
+<app-navbar ></app-navbar>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col text-white bg-warning p-5 rounded-4">
+      <div class="text">
+        <h4 class="fw-bold mb-5">cartshop.io</h4>
+        <h1>start your shopping <br>now . </h1>
+        <p>this is the best place to shop online with interesting offers <br>harry up and sign now!</p>
+      </div>
+      <div class="feedback px-3 py-4 rounded-4 ">
+        <div class="text mb-3 fw-normal">
+          I think the wepsite is impersive it has excellent offers  and the delivery fees are sheap <br>
+          I recommended it for anyone.
+        </div>
+        <div class="customer-info d-flex ">
+          <img src="assets/images/young-bearded-man-with-striped-shirt_273609-5677.webp"  class="rounded-circle">
+          <div class="ms-3">
+            <p class="mb-1">Robien natalio</p>
+            <p>Published 12 Bestsellers</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col bg-white p-5 rounded-4">
+      <form class="loginBox" [formGroup]='signUpForm' (ngSubmit)="onSubmit()">
+        <h3>SignUp</h3>
+        <h5>Don't have an account</h5>
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input type="text" class="form-control" id="" formControlName= "name">
+          <div class="nameValidate">
+            <p class="text-danger" *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched">please enter a valid name</p>
+            <p class="text-danger" *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.untouched"> The name is required</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Email</label>
+          <input type="email" class="form-control" id="" formControlName="email">
+          <div class="emailValidate">
+            <p class="text-danger" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">please enter a valid email</p>
+            <p class="text-danger" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.untouched"> The email is required</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Password</label>
+          <input type="password" class="form-control" id="" formControlName="password">
+          <div class="passwordValidate">
+            <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">You must enter at 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
+            <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.untouched"> The password is required</p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-warning" [disabled]="signUpForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

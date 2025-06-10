@@ -1,0 +1,10 @@
+.feedback{
+  background-color: rgba(92, 86, 9, 0.59);
+  .text{
+    font-size: 12px;
+  }
+  img{
+    height: 60px;
+    width: 60px;
+  }
+}

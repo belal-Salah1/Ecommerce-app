@@ -1,0 +1,42 @@
+<div class="footer">
+  <div class="container-fluid  mt-4 py-5 bg-white ">
+    <div class="row  justify-content-space-between m-auto ">
+      <div class="col d-flex justify-content-center">
+        <div class="contact align-items-between">
+          <h4>Contact Us</h4>
+          <p>cartshop.io</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>example/gmail.com</p>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="catagories">
+          <h4>Categories</h4>
+          <a [routerLink]="['/product-page','fashion']"><p>Fashion</p></a>
+          <a [routerLink]="['/product-page','toys']"><p>Toys</p></a>
+          <a [routerLink]="['/product-page','appliances']"><p>Appliances</p></a>
+          <a [routerLink]="['/product-page','home & furniture']"><p>Home & Furniture</p></a>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="quickLinks">
+          <h4>Quick Links</h4>
+          <a [routerLink]=" "><p>Home</p></a>
+          <a ><p>About</p></a>
+          <a ><p>Login</p></a>
+        </div>
+      </div>
+      <div class="col d-flex flex-wrap justify-content-center">
+        <div class="payment">
+          <h4>Payment</h4>
+          <a class="link-underline text-bold"><p><span class="me-2 fs-5">Go to Payment</span> <i class="bi bi-arrow-right-circle"></i></p></a>
+        </div>
+        <!-- <div class="newslatter">
+          <h4>Newsletter</h4>
+          <p >Subscribe to our newsletter to get the latest updates and offers.</p>
+          <input type="email" placeholder="Enter your email">
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
