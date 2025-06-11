@@ -16,10 +16,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   model:any ={};
-
-
   constructor(private _authService:AuthService,private _router:Router){
-
   }
 
 onSubmit(form: NgForm) {

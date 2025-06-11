@@ -18,6 +18,9 @@ export class NavbarComponent implements OnInit{
     this.cartCount = this._dataStorageServise.getCartData().length;
     this.logState = this._authService.getLogState();
   }
+  SetUserLogOut(){
+    this._authService.logOut();
+  }
 
 
 

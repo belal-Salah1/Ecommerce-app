@@ -29,7 +29,7 @@
         <a [routerLink]="['/login']" routerLinkActive="router-link-active" ><h5> Have an account ?</h5></a>
         <div class="mb-3">
           <label for="" class="form-label">Name</label>
-          <input type="text" class="form-control" id="" formControlName= "name" placeholder="Enter your name">
+          <input type="text" class="form-control" id="Name" formControlName= "name" placeholder="Enter your name">
           <div class="nameValidate">
             <p class="text-danger" *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched">please enter a valid name</p>
             <p class="text-danger" *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.untouched"> The name is required</p>
@@ -37,7 +37,7 @@
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Email</label>
-          <input type="email" class="form-control" id="" formControlName="email" placeholder="Enter your email">
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email">
           <div class="emailValidate">
             <p class="text-danger" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">please enter a valid email</p>
             <p class="text-danger" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.untouched"> The email is required</p>
@@ -45,7 +45,7 @@
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Password</label>
-          <input type="password" class="form-control" id="" formControlName="password" placeholder="Enter your password">
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
           <div class="passwordValidate">
             <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">Please enter at 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
             <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.untouched"> The password is required</p>

@@ -25,14 +25,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pe-0" routerLink="/userLogin">
+          <a class="nav-link pe-0" routerLink="/userLogin" *ngIf="!logState">
             <span>Register</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link pe-0" routerLink="/login">
             <span *ngIf="!logState">LogIn</span>
-            <span *ngIf="logState">LogOut</span>
+            <span *ngIf="logState" (click)="SetUserLogOut()">LogOut</span>
           </a>
         </li>
 
