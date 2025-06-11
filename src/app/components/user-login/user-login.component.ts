@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
-import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-user-login',
-  imports: [NavbarComponent, NgIf, ReactiveFormsModule, RouterLink, FooterComponent],
+  imports: [NavbarComponent, NgIf, ReactiveFormsModule, RouterLink],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.css'
 })
-export class UserLoginComponent {
+export class UserLoginComponent implements OnInit{
   signUpForm!:FormGroup
   isUserLoggedIn:boolean = false
   constructor(private _router:Router, private _authService:AuthService){}
