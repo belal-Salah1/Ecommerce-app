@@ -45,9 +45,9 @@
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" autocomplete="new-password">
           <div class="passwordValidate">
-            <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">Please enter at 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
+            <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">Please enter 6 characters or more ,includes at least 2 digits , one capital letter and two small letters .</p>
             <p class="text-danger" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.untouched"> The password is required</p>
           </div>
         </div>
@@ -56,5 +56,4 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>
 

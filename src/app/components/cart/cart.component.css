@@ -22,5 +22,8 @@
   padding: 24px 10px 0;
   margin-left: 20px;
   height: fit-content;
+  width:min(400px, 300px)
+
 }
+
 

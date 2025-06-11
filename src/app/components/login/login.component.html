@@ -15,9 +15,9 @@
     </div>
     <div class="mb-3">
       <label for="Password" class="form-label">Password</label>
-      <input type="password" id="Password" class="form-control" placeholder="Enter your password" [(ngModel)]="model.password" #password="ngModel" required minlength="6" maxlength="30" pattern="^(?=(.*\d){2,})(?=(.*[a-zA-Z]){2,})(?=.*[A-Z]).{6,}$" name="password">
+      <input type="password" id="Password" class="form-control" placeholder="Enter your password" [(ngModel)]="model.password" #password="ngModel" required minlength="6" maxlength="30" pattern="^(?=(.*\d){2,})(?=(.*[a-zA-Z]){2,})(?=.*[A-Z]).{6,}$" name="password" autocomplete="current-password">
       <div class="passwordValidate" >
-        <p class="text-danger" *ngIf="password?.errors?.['pattern'] && password?.touched">Please enter at 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
+        <p class="text-danger" *ngIf="password?.errors?.['pattern'] && password?.touched">Please enter 6 characters or more ,includes at least 2 digits , one capital letter and two small letters </p>
         <p class="text-danger" *ngIf="password?.errors?.['required']"> The password is required</p>
       </div>
     </div>
