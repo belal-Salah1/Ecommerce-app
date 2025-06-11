@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, CanActivateFn, provideRouter, Router, RouterSta
 import { authGuard } from './auth.guard';
 import { AuthService } from '../services/auth.service';
 
-fdescribe('authGuard', () => {
+describe('authGuard', () => {
   let MockAuthService:jasmine.SpyObj<AuthService>
   let _router:Router
   let route:ActivatedRouteSnapshot
@@ -22,8 +22,6 @@ fdescribe('authGuard', () => {
     });
     _router = TestBed.inject(Router)
     spyOn(_router,'navigate')
-
-
   });
 
   it('should be created', () => {
