@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, CanActivateFn, provideRouter, Router, RouterSta
 import { loginHandleGuard } from './login-handle.guard';
 import { AuthService } from '../services/auth.service';
 
-fdescribe('loginHandleGuard', () => {
+describe('loginHandleGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>
       TestBed.runInInjectionContext(() => loginHandleGuard(...guardParameters));
 
