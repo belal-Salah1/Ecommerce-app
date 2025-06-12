@@ -15,12 +15,12 @@ describe('AuthService', () => {
   });
   it('should log in ',()=>{
     service.logIn()
-    expect(service.logState).toBe(true)
+    expect(localStorage.getItem('logState')).toBe('true')
     expect(service.getLogState()).toBe(true)
   })
   it('should log out ',()=>{
     service.logOut()
-    expect(service.logState).toBe(false)
+    expect(localStorage.getItem('logState')).toBe(null)
     expect(service.getLogState()).toBe(false)
   })
 });

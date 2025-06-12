@@ -7,16 +7,19 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   logState!:boolean;
   constructor(){
-    this.logState = false;
+    // this.logState = false;
   }
 
   logIn(){
-    this.logState = true;
+    localStorage.setItem('logState', 'true');
+
+    // this.logState = true;
   }
   logOut(){
-    this.logState = false;
+    localStorage.removeItem('logState');
+    // this.logState = false;
   }
   getLogState():boolean{
-    return this.logState;
+    return !!localStorage.getItem('logState');
   }
 }
