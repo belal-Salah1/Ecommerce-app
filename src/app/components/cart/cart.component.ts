@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../../services/data-storage.service';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule, NavbarComponent, FormsModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class CartComponent implements OnInit {
   getCartProducts: any = [];

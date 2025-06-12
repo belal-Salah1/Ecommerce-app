@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -9,7 +9,8 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-user-login',
   imports: [NavbarComponent, NgIf, ReactiveFormsModule, RouterLink],
   templateUrl: './user-login.component.html',
-  styleUrl: './user-login.component.css'
+  styleUrl: './user-login.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserLoginComponent implements OnInit{
   signUpForm!:FormGroup

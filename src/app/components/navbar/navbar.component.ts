@@ -1,4 +1,4 @@
-import {  Component, Input, OnInit } from '@angular/core';
+import {  ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DataStorageService } from '../../services/data-storage.service';
 import { NgIf } from '@angular/common';
@@ -8,7 +8,8 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-navbar',
   imports: [RouterLink,NgIf],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit{
   @Input() cartCount:number = 0;

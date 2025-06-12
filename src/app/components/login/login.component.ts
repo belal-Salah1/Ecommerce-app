@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -10,7 +10,8 @@ import { NavbarComponent } from "../navbar/navbar.component";
   standalone: true,
   imports: [FormsModule, CommonModule, NgIf, NavbarComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
   email: string = '';

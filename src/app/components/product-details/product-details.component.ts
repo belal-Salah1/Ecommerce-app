@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
 import { CurrencyPipe, NgIf } from '@angular/common';
@@ -10,6 +10,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
   imports: [CurrencyPipe, NgIf, RouterLink, NavbarComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductDetailsComponent implements OnInit {
   getParamValue: any;
