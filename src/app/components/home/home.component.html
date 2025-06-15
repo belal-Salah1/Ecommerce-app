@@ -6,7 +6,7 @@
       @for(img of imagesArray; track img.id ){
 
         <div class="carousel-item active">
-          <img src="{{img.imgSrc}}" class="d-block w-100" alt="...">
+          <img rel="preload" as="image" src="{{img.imgSrc}}" class="d-block w-100" alt="...">
         </div>
       }
     </div>

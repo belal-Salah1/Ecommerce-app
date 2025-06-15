@@ -38,10 +38,10 @@ export class HomeComponent implements OnInit{
     this.catagorizeArray= this._GetDataService.catagoriesData;
     this._GetDataService.productData.filter((prd:any)=>{
       if (prd.pdCategory == "appliances"){
-        this.applinceProductsArray.push(prd)
+        this.applinceProductsArray = [...this.applinceProductsArray,prd]
       }
       if (prd.pdCategory == "fashion"){
-        this.fashionProductsArray.push(prd)
+        this.fashionProductsArray = [...this.fashionProductsArray,prd]
       }
     })
   }
