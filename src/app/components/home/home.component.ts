@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit{
   }
   ngOnInit() {
     this.catagorizeArray= this._GetDataService.catagoriesData;
-    setTimeout(()=>{
+    let timer = setTimeout(()=>{
       this._GetDataService.productData.filter((prd:any)=>{
         if (prd.pdCategory == "appliances"){
           this.applinceProductsArray = [...this.applinceProductsArray,prd]
