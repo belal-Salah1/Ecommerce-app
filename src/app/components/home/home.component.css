@@ -4,6 +4,7 @@
   margin: 50px 0;
 padding: 20px;
 
+
 .content{
     .productContent{
       padding: 30px;
@@ -34,4 +35,11 @@ padding: 20px;
     }
   }
 }
-
+.container{
+  .catagorise{
+    img{
+      min-height: 82.22px;
+      min-width: 82.22px;
+    }
+  }
+}
