@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { GetDataService } from '../../services/get-data.service';
@@ -32,17 +32,20 @@ export class HomeComponent implements OnInit{
   applinceProductsArray:any=[];
   fashionProductsArray:any=[];
 
-  constructor(private _GetDataService:GetDataService){
+  constructor(private _GetDataService:GetDataService , private cdr:ChangeDetectorRef){
   }
   ngOnInit() {
     this.catagorizeArray= this._GetDataService.catagoriesData;
-    this._GetDataService.productData.filter((prd:any)=>{
-      if (prd.pdCategory == "appliances"){
-        this.applinceProductsArray = [...this.applinceProductsArray,prd]
-      }
-      if (prd.pdCategory == "fashion"){
-        this.fashionProductsArray = [...this.fashionProductsArray,prd]
-      }
-    })
+    setTimeout(()=>{
+      this._GetDataService.productData.filter((prd:any)=>{
+        if (prd.pdCategory == "appliances"){
+          this.applinceProductsArray = [...this.applinceProductsArray,prd]
+        }
+        if (prd.pdCategory == "fashion"){
+          this.fashionProductsArray = [...this.fashionProductsArray,prd]
+        }
+      })
+      this.cdr.detectChanges();
+    },0)
   }
 }
