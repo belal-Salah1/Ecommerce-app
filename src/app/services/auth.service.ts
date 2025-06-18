@@ -1,25 +1,49 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  logState!:boolean;
-  constructor(){
-    // this.logState = false;
+  logState: boolean = false;
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  logIn(){
-    localStorage.setItem('logState', 'true');
+  logIn() {
+    if (this.isBrowser) {
+      try {
+        localStorage.setItem('logState', 'true');
+        this.logState = true;
+      } catch (e) {
+        console.error('Error accessing localStorage:', e);
+      }
+    }
+  }
 
-    // this.logState = true;
+  logOut() {
+    if (this.isBrowser) {
+      try {
+        localStorage.removeItem('logState');
+        this.logState = false;
+      } catch (e) {
+        console.error('Error accessing localStorage:', e);
+      }
+    }
   }
-  logOut(){
-    localStorage.removeItem('logState');
-    // this.logState = false;
-  }
-  getLogState():boolean{
-    return !!localStorage.getItem('logState');
+
+  getLogState(): boolean {
+    if (this.isBrowser) {
+      try {
+        return !!localStorage.getItem('logState');
+      } catch (e) {
+        console.error('Error accessing localStorage:', e);
+        return false;
+      }
+    }
+    return false;
   }
 }

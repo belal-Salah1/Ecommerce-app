@@ -1,17 +1,22 @@
-import { CanActivateFn } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
+import { map, of } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const _authService:AuthService = inject(AuthService)
-  const logState = _authService.getLogState()
-  const _router = inject(Router)
-  if(logState){
-    return true
-  }else{
-    _router.navigate(['/userLogin'])
-    return false
-  };
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-}
+  // Return an observable that resolves after a microtask to ensure we're in the browser context
+  return of(null).pipe(
+    map(() => {
+      const isAuthenticated = authService.getLogState();
+      if (isAuthenticated) {
+        return true;
+      } else {
+        router.navigate(['/userLogin']);
+        return false;
+      }
+    })
+  );
+};
