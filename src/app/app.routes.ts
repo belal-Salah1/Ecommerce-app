@@ -8,7 +8,7 @@ import { authGuard } from './guards/auth.guard';
 import { loginHandleGuard } from './guards/login-handle.guard';
 
 export const routes: Routes = [
-  {path:'' , redirectTo:'userLogin' , pathMatch:'full'},
+  {path:'' , redirectTo:'home' , pathMatch:'full'},
   {path:'home' , component:HomeComponent, canActivate:[authGuard]},
   {path:'cart' , loadComponent:()=>import('./components/cart/cart.component').then(m=>m.CartComponent) , canActivate:[authGuard]},
   {path:'product-page/:name', component:ProductPageComponent},
