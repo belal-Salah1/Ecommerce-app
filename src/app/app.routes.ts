@@ -9,7 +9,7 @@ import { loginHandleGuard } from './guards/login-handle.guard';
 
 export const routes: Routes = [
   {path:'' , redirectTo:'home' , pathMatch:'full'},
-  {path:'home' , component:HomeComponent, canActivate:[authGuard]},
+  {path:'home' , component:HomeComponent},
   {path:'cart' , loadComponent:()=>import('./components/cart/cart.component').then(m=>m.CartComponent) , canActivate:[authGuard]},
   {path:'product-page/:name', component:ProductPageComponent},
   {path:'product-details/:name/:id' , component:ProductDetailsComponent},

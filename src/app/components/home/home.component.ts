@@ -35,17 +35,25 @@ export class HomeComponent implements OnInit{
   constructor(private _GetDataService:GetDataService , private cdr:ChangeDetectorRef){
   }
   ngOnInit() {
-    this.catagorizeArray= this._GetDataService.catagoriesData;
-    let timer = setTimeout(()=>{
-      this._GetDataService.productData.filter((prd:any)=>{
-        if (prd.pdCategory == "appliances"){
-          this.applinceProductsArray = [...this.applinceProductsArray,prd]
-        }
-        if (prd.pdCategory == "fashion"){
-          this.fashionProductsArray = [...this.fashionProductsArray,prd]
-        }
-      })
+    this._GetDataService.getCategories().subscribe((res:any)=>{
+      this.catagorizeArray = res.data.categories;
       this.cdr.detectChanges();
-    },0)
+    });
+
+      this._GetDataService.getProducts().subscribe((res:any)=>{
+
+        res.data.products.forEach((prd:any)=>{
+          if (prd.pdCategory == "appliances"){
+            this.applinceProductsArray = [...this.applinceProductsArray,prd]
+          }
+          if (prd.pdCategory == "fashion"){
+            this.fashionProductsArray = [...this.fashionProductsArray,prd]
+          }
+          this.cdr.detectChanges();
+
+        })
+      })
+
+
   }
 }

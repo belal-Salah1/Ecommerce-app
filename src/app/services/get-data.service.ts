@@ -1,9 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetDataService {
+  constructor(private httpClient:HttpClient){}
   subCategorisFilterData = [
     { id: 1, categories: 'appliances', subcategories: 'mobile' },
     { id: 2, categories: 'appliances', subcategories: 'smart tv' },
@@ -234,5 +237,15 @@ export class GetDataService {
       pdImg: "assets/images/productimg/toy-4.webp",
     },
   ];
+
+  getSubCategories(){
+    return this.httpClient.get(`${environment.apiUrl}/subcategories`);
+  }
+  getCategories(){
+    return this.httpClient.get(`${environment.apiUrl}/categories`);
+  }
+  getProducts(){
+    return this.httpClient.get(`${environment.apiUrl}/products`);
+  }
 
 }

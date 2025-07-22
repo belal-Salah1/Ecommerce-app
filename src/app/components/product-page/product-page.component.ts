@@ -24,28 +24,34 @@ export class ProductPageComponent implements OnInit {
   ngOnInit() {
     this.getParamValue = this._router.snapshot.paramMap.get('name');
 
-    this._getDataService.productData.filter((prd: any) => {
-      if (prd.pdCategory == this.getParamValue) {
-        this.getProductData.push(prd);
-        this.filteredProducts.push(prd);
-      }
-    });
-    this._getDataService.subCategorisFilterData.filter((prd) => {
-      if (prd.categories == this.getParamValue) {
-        this.getSubCatagoryOptions.push(prd);
-      }
-    });
+    this._getDataService.getProducts().subscribe((res:any)=>{
+      res.data.products.filter((prd: any) => {
+        if (prd.pdCategory == this.getParamValue) {
+          this.getProductData.push(prd);
+          this.filteredProducts.push(prd);
+        }
+      });
+    })
+    this._getDataService.getSubCategories().subscribe((res:any)=>{
+      res.data.SubCatagories.filter((prd:any) => {
+        if (prd.categories == this.getParamValue) {
+          this.getSubCatagoryOptions.push(prd);
+        }
+      });
+    })
   }
 
   filterSelect(data: any) {
     this.filteredProducts = [];
     this.getFilterValue = data.target.value;
     if (this.getFilterValue != 'all') {
-      this._getDataService.productData.filter((prd) => {
-        if (prd.pdSubCategory == this.getFilterValue) {
-          this.filteredProducts.push(prd);
-        }
-      });
+      this._getDataService.getProducts().subscribe((res:any)=>{
+        res.data.products.filter((prd:any) => {
+          if (prd.pdSubCategory == this.getFilterValue) {
+            this.filteredProducts.push(prd);
+          }
+        });
+      })
     } else {
       this.filteredProducts = this.getProductData;
     }

@@ -7,7 +7,7 @@
   <form action="" #loginForm='ngForm' (ngSubmit)="onSubmit(loginForm)">
     <div class="mb-3">
       <label for="Email" class="form-label">Email</label>
-      <input type="email" id="Email" class="form-control"  [(ngModel)]="model.email" #email="ngModel" required email name="email">
+      <input type="email" id="Email" class="form-control"  [(ngModel)]="model.email" #email="ngModel" required email name="email" placeholder="Enter your email" defaultValue="user@gmail.com">
       <div class="emailValidate" >
         <p class="text-danger" *ngIf="email?.errors?.['required']"> The email is required</p>
         <p class="text-danger" *ngIf="email?.errors?.['email']">Please enter a valid email</p>

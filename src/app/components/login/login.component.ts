@@ -14,16 +14,28 @@ import { NavbarComponent } from "../navbar/navbar.component";
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  model:any ={};
-  constructor(private _authService:AuthService,private _router:Router){
-  }
+  model:any ={
+    email:'user@gmail.com',
+    password:'Aa1232f'
+  };
+  constructor(private _authService:AuthService,private _router:Router){}
 
 onSubmit(form: NgForm) {
   if (form.valid) {
-    this._authService.logIn();
-    this._router.navigate(['/home']);
+
+    this._authService.login(this.model).subscribe({
+      next:(res)=>{
+        if(res.status == 'SUCCESS'){
+          localStorage.setItem('token',res.token);
+          this._router.navigate(['/home']);
+        }else{
+          console.log(res.message)
+        }
+      },
+      error:(err)=>{
+        window.alert(err.error.message);
+      }
+    });
   }
 }
 
