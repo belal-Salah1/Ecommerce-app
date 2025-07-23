@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
 import { CurrencyPipe } from '@angular/common';
@@ -6,54 +6,75 @@ import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-product-page',
+  standalone: true,
   imports: [CurrencyPipe, RouterLink, RouterModule, NavbarComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductPageComponent implements OnInit {
-  getParamValue: any;
-  getProductData: any = [];
-  filteredProducts: any = [];
-  getSubCatagoryOptions: any = [];
-  getFilterValue:any;
+  getParamValue: string | null = null;
+  getProductData: any[] = [];
+  filteredProducts: any[] = [];
+  getSubCatagoryOptions: any[] = [];
+  getFilterValue: string = 'all';
+  isLoading: boolean = true;
+
   constructor(
     private _router: ActivatedRoute,
-    private _getDataService: GetDataService
+    private _getDataService: GetDataService,
+    private cdr: ChangeDetectorRef
   ) {}
+
   ngOnInit() {
     this.getParamValue = this._router.snapshot.paramMap.get('name');
+    this.loadProducts();
+    this.loadSubCategories();
+  }
 
-    this._getDataService.getProducts().subscribe((res:any)=>{
-      res.data.products.filter((prd: any) => {
-        if (prd.pdCategory == this.getParamValue) {
-          this.getProductData.push(prd);
-          this.filteredProducts.push(prd);
-        }
-      });
-    })
-    this._getDataService.getSubCategories().subscribe((res:any)=>{
-      res.data.SubCatagories.filter((prd:any) => {
-        if (prd.categories == this.getParamValue) {
-          this.getSubCatagoryOptions.push(prd);
-        }
-      });
-    })
+  loadProducts() {
+    this.isLoading = true;
+    this._getDataService.getProducts().subscribe({
+      next: (res: any) => {
+        this.getProductData = res.data.products.filter((prd: any) =>
+          prd.pdCategory === this.getParamValue
+        );
+        this.filteredProducts = [...this.getProductData];
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      },
+      error: (error) => {
+        console.error('Error loading products:', error);
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  loadSubCategories() {
+    this._getDataService.getSubCategories().subscribe({
+      next: (res: any) => {
+        this.getSubCatagoryOptions = res.data.SubCatagories.filter(
+          (prd: any) => prd.categories === this.getParamValue
+        );
+        this.cdr.markForCheck();
+      },
+      error: (error) => {
+        console.error('Error loading subcategories:', error);
+        this.cdr.markForCheck();
+      }
+    });
   }
 
   filterSelect(data: any) {
-    this.filteredProducts = [];
-    this.getFilterValue = data.target.value;
-    if (this.getFilterValue != 'all') {
-      this._getDataService.getProducts().subscribe((res:any)=>{
-        res.data.products.filter((prd:any) => {
-          if (prd.pdSubCategory == this.getFilterValue) {
-            this.filteredProducts.push(prd);
-          }
-        });
-      })
+    const filterValue = data.target.value;
+    if (filterValue !== 'all') {
+      this.filteredProducts = this.getProductData.filter(
+        (prd) => prd.pdSubCategory === filterValue
+      );
     } else {
-      this.filteredProducts = this.getProductData;
+      this.filteredProducts = [...this.getProductData];
     }
+    this.cdr.markForCheck();
   }
 }

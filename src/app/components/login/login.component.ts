@@ -26,7 +26,7 @@ onSubmit(form: NgForm) {
     this._authService.login(this.model).subscribe({
       next:(res)=>{
         if(res.status == 'SUCCESS'){
-          localStorage.setItem('token',res.token);
+          localStorage.setItem('token',res.data.user.token);
           this._router.navigate(['/home']);
         }else{
           console.log(res.message)

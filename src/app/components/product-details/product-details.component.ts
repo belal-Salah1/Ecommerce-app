@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
 import { CurrencyPipe, NgIf } from '@angular/common';
@@ -21,16 +21,22 @@ export class ProductDetailsComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _getDataService: GetDataService,
     private _DataStorageService: DataStorageService,
-    private _router: Router
+    private _router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
   ngOnInit() {
     this.storeCartData = this._DataStorageService.getCartData();
     this.getParamValue = this._activatedRoute.snapshot.paramMap.get('id');
-    this._getDataService.productData.filter((prd) => {
-      if (prd.pdId == this.getParamValue) {
-        this.getProductDetails = prd;
+    this._getDataService.getProducts().subscribe({
+      next:(res:any)=>{
+        res.data.products.filter((prd:any) => {
+          if (prd.pdId == this.getParamValue) {
+            this.getProductDetails = prd;
+          }
+          this.cdr.markForCheck();
+        });
       }
-    });
+    })
 
     this.storeCartData.filter((prd: any) => {
       if (prd.pdId == this.getParamValue) {
