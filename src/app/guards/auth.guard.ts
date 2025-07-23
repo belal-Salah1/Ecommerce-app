@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  // Return an observable that resolves after a microtask to ensure we're in the browser context
+
   return of(null).pipe(
     map(() => {
       const isAuthenticated = authService.getLogState();
